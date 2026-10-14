@@ -1,0 +1,21 @@
+{
+  "name": "universal-google-form-submitter",
+  "version": "2.0.0",
+  "description": "Công cụ điền hàng loạt biểu mẫu Google Form thông minh và tự động hóa",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "cli": "node cli.js"
+  },
+  "keywords": [
+    "google-forms",
+    "automation",
+    "survey-submitter",
+    "auto-fill"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

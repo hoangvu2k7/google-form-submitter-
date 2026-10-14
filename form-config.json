@@ -1,0 +1,322 @@
+{
+  "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLScDQrZm938VFm9gU5jIjiNtRjcQ8jRFRIma3nPkyRkeQN0HXg/viewform",
+  "realFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLScDQrZm938VFm9gU5jIjiNtRjcQ8jRFRIma3nPkyRkeQN0HXg/viewform",
+  "submitUrl": "https://docs.google.com/forms/d/e/1FAIpQLScDQrZm938VFm9gU5jIjiNtRjcQ8jRFRIma3nPkyRkeQN0HXg/formResponse",
+  "title": "PHIẾU KHẢO SÁT Ý THỨC THAM GIA GIAO THÔNG CỦA SINH VIÊN LÂM NGHIỆP",
+  "desc": "Khảo sát thực trạng và mức độ ý thức của sinh viên khi tham gia giao thông. Thông tin thu thập chỉ phục vụ mục đích học tập và nghiên cứu.",
+  "totalQuestions": 19,
+  "questions": [
+    {
+      "id": 1,
+      "title": "Giới tính",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.223016271",
+      "required": true,
+      "choices": [
+        "Nam",
+        "Nữ",
+        "Giới tính khác"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Bạn đang là sinh viên năm:",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.2086929512",
+      "required": true,
+      "choices": [
+        "Năm 1",
+        "Năm 2",
+        "Năm 3",
+        "Năm 4",
+        "Khác"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Phương tiện bạn thường sử dụng để đến trường:",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.653471486",
+      "required": true,
+      "choices": [
+        "Xe máy",
+        "Xe đạp điện",
+        "Xe đạp",
+        "Ô tô",
+        "Xe buýt",
+        "Đi bộ"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Bạn có thường xuyên đội mũ bảo hiểm khi đi xe máy hoặc xe máy điện không?",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.490591538",
+      "required": true,
+      "choices": [
+        "Luôn luôn",
+        "Thường xuyên",
+        "Thỉnh thoảng",
+        "Hiếm khi",
+        "Không bao giờ"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Bạn có chấp hành đèn tín hiệu giao thông không?",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.867345323",
+      "required": true,
+      "choices": [
+        "Luôn luôn",
+        "Thường xuyên",
+        "Thỉnh thoảng",
+        "Hiếm khi",
+        "Không bao giờ"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Bạn có đi đúng làn đường và phần đường quy định không?",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.1839164804",
+      "required": true,
+      "choices": [
+        "Luôn luôn",
+        "Thường xuyên",
+        "Thỉnh thoảng",
+        "Hiếm khi",
+        "Không bao giờ"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Bạn có sử dụng điện thoại khi đang điều khiển phương tiện không?",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.1106199024",
+      "required": true,
+      "choices": [
+        "Không bao giờ",
+        "Hiếm khi",
+        "Thỉnh thoảng",
+        "Thường xuyên",
+        "Luôn luôn"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Bạn có từng vượt đèn đỏ khi tham gia giao thông không?",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.1768081733",
+      "required": true,
+      "choices": [
+        "Chưa bao giờ",
+        "Hiếm khi",
+        "Thỉnh thoảng",
+        "Thường xuyên"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Bạn có từng chạy quá tốc độ cho phép không?",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.350452937",
+      "required": true,
+      "choices": [
+        "Chưa bao giờ",
+        "Hiếm khi",
+        "Thỉnh thoảng",
+        "Thường xuyên"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Bạn đánh giá ý thức tham gia giao thông của sinh viên hiện nay như thế nào?",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.192803657",
+      "required": true,
+      "choices": [
+        "Rất tốt",
+        "Tốt",
+        "Trung bình",
+        "Chưa tốt",
+        "Rất kém"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Theo bạn, nguyên nhân khiến một số sinh viên vi phạm luật giao thông là gì?",
+      "description": "",
+      "type": "checkbox",
+      "rawType": 4,
+      "entry": "entry.2004737867",
+      "required": true,
+      "choices": [
+        "Thiếu kiến thức về luật giao thông",
+        "Ý thức chấp hành chưa cao",
+        "Tâm lý chủ quan",
+        "Vội vàng, muốn tiết kiệm thời gian",
+        "Ảnh hưởng từ bạn bè",
+        "Cơ sở hạ tầng giao thông chưa thuận tiện"
+      ],
+      "minSelect": 1,
+      "maxSelect": 3
+    },
+    {
+      "id": 12,
+      "title": "Bạn có thường xuyên tìm hiểu các quy định mới về an toàn giao thông không?",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.885501182",
+      "required": true,
+      "choices": [
+        "Thường xuyên",
+        "Thỉnh thoảng",
+        "Hiếm khi",
+        "Không bao giờ"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Theo bạn, biện pháp nào giúp nâng cao ý thức tham gia giao thông của sinh viên hiệu quả nhất?",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.1910516186",
+      "required": true,
+      "choices": [
+        "Tăng cường tuyên truyền, giáo dục",
+        "Tổ chức các buổi ngoại khóa",
+        "Tăng cường kiểm tra, xử lý vi phạm",
+        "Phổ biến kiến thức pháp luật giao thông",
+        "Tổ chức các cuộc thi về an toàn giao thông"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Trong 3 tháng gần đây, bạn đã từng mắc lỗi vi phạm giao thông nào và bạn có biết mức xử phạt đối với lỗi đó không?",
+      "description": "",
+      "type": "checkbox",
+      "rawType": 4,
+      "entry": "entry.27693466",
+      "required": true,
+      "choices": [
+        "Chưa từng vi phạm",
+        "Không đội mũ bảo hiểm hoặc cài quai không đúng cách",
+        "Vượt đèn đỏ",
+        "Đi sai làn đường hoặc đi ngược chiều",
+        "Sử dụng điện thoại khi điều khiển phương tiện",
+        "Chạy quá tốc độ",
+        "Chở quá số người quy định",
+        "Có vi phạm nhưng không biết mức phạt"
+      ],
+      "minSelect": 1,
+      "maxSelect": 3
+    },
+    {
+      "id": 15,
+      "title": "Động cơ nào thường khiến bạn hoặc sinh viên khác vi phạm quy định giao thông?",
+      "description": "",
+      "type": "checkbox",
+      "rawType": 4,
+      "entry": "entry.1967199615",
+      "required": true,
+      "choices": [
+        "Vội đi học hoặc đi làm",
+        "Tâm lý chủ quan, nghĩ sẽ không bị phát hiện",
+        "Muốn tiết kiệm thời gian",
+        "Ảnh hưởng từ bạn bè",
+        "Chưa hiểu rõ quy định"
+      ],
+      "minSelect": 1,
+      "maxSelect": 3
+    },
+    {
+      "id": 16,
+      "title": "Nếu đang muộn giờ học và đèn tín hiệu chuyển đỏ khi bạn gần đến nút giao, bạn sẽ làm gì?",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.771167668",
+      "required": true,
+      "choices": [
+        "Dừng lại đúng quy định",
+        "Đi qua vì đang muộn",
+        "Đi qua nếu đường vắng",
+        "Không biết xử lý thế nào"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Trong 30 ngày gần đây, bạn đã bao nhiêu lần vi phạm quy định giao thông?",
+      "description": "",
+      "type": "radio",
+      "rawType": 2,
+      "entry": "entry.200448949",
+      "required": true,
+      "choices": [
+        "0 lần",
+        "1 đến 2 lần",
+        "3 đến 5 lần",
+        "Trên 5 lần",
+        "Không nhớ hoặc không muốn trả lời"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Theo bạn, bên nào cần phối hợp để nâng cao ý thức tham gia giao thông của sinh viên?",
+      "description": "",
+      "type": "checkbox",
+      "rawType": 4,
+      "entry": "entry.1676356543",
+      "required": true,
+      "choices": [
+        "Bản thân sinh viên",
+        "Gia đình",
+        "Nhà trường và Đoàn Hội",
+        "Cơ quan chức năng",
+        "Tất cả các bên"
+      ],
+      "minSelect": 1,
+      "maxSelect": 3
+    },
+    {
+      "id": 19,
+      "title": "Bạn có đề xuất giải pháp nào để hạn chế vi phạm giao thông của sinh viên?",
+      "description": "",
+      "type": "checkbox",
+      "rawType": 4,
+      "entry": "entry.2128197260",
+      "required": true,
+      "choices": [
+        "Tuyên truyền, giáo dục pháp luật",
+        "Tăng cường kiểm tra và xử lý vi phạm",
+        "Cải thiện biển báo, vạch kẻ đường hoặc khu vực cổng trường",
+        "Tổ chức tập huấn kỹ năng tham gia giao thông an toàn"
+      ],
+      "minSelect": 1,
+      "maxSelect": 3
+    }
+  ]
+}

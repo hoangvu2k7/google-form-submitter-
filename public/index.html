@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Google Form Auto-Submitter</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-brand">
+        <div class="logo-icon">⚡</div>
+        <div>
+          <h1>Universal Google Form Auto-Submitter</h1>
+          <p class="subtitle" id="formTitleDisplay">Đang tải thông tin biểu mẫu...</p>
+          <p class="form-target-url" style="font-size: 13px; margin-top: 4px; color: #5746e3;">
+            🎯 Đích đến: <a id="targetFormLink" href="#" target="_blank" style="color: #5746e3; font-weight: 600; text-decoration: underline;">Chưa có link</a>
+          </p>
+        </div>
+      </div>
+      <div class="header-badges">
+        <span class="badge badge-purple" id="totalQuestionsBadge">0 Câu hỏi</span>
+        <span class="badge badge-green" id="connectionBadge">● Đã kết nối</span>
+      </div>
+    </header>
+
+    <!-- Thanh Dán Link & Phân Tích Thông Minh -->
+    <section class="card url-card">
+      <div class="url-bar-container">
+        <label for="formUrlInput" class="url-label">
+          <span>🔗</span> Dán đường link Google Form bất kỳ (hỗ trợ cả forms.gle và docs.google.com):
+        </label>
+        <div class="url-input-group">
+          <input type="text" id="formUrlInput" class="input-url" placeholder="https://forms.gle/... hoặc https://docs.google.com/forms/d/e/.../viewform">
+          <button id="btnAnalyze" class="btn btn-analyze" onclick="handleAnalyzeForm()">
+            <span id="analyzeIcon">🔍</span> <span id="analyzeText">Quét & Phân tích Form</span>
+          </button>
+        </div>
+        <p class="url-hint">Hệ thống sẽ tự động bóc tách toàn bộ câu hỏi, loại đáp án và mã gửi phiếu chỉ trong vài giây.</p>
+      </div>
+    </section>
+
+    <!-- Bảng xem trước câu hỏi đã nhận diện -->
+    <section class="card schema-card" id="schemaSection">
+      <div class="schema-header" onclick="toggleSchemaCollapse()">
+        <div class="schema-title-group">
+          <span class="schema-icon">📋</span>
+          <h3 class="schema-title">Cấu trúc câu hỏi đã phân tích (<span id="detectedCount">0</span> câu hỏi)</h3>
+        </div>
+        <button class="btn-toggle-schema" id="btnToggleSchema">▼ Mở rộng xem chi tiết</button>
+      </div>
+      <div class="schema-body collapsed" id="schemaBody">
+        <div class="questions-preview-list" id="questionsPreviewList">
+          <p class="text-muted text-center">Chưa có câu hỏi nào được tải. Hãy dán link phía trên và bấm "Quét & Phân tích Form".</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="main-grid">
+      <!-- Cột trái: Bảng điều khiển cấu hình -->
+      <section class="card config-card">
+        <h2 class="card-title">⚙️ Cấu hình gửi phiếu</h2>
+
+        <div class="form-group">
+          <label for="targetCount">Số lượng phiếu cần lấy:</label>
+          <div class="input-with-presets">
+            <input type="number" id="targetCount" value="50" min="1" max="10000" class="input-main">
+            <div class="preset-buttons">
+              <button type="button" class="btn-preset" onclick="setCount(20)">20</button>
+              <button type="button" class="btn-preset" onclick="setCount(50)">50</button>
+              <button type="button" class="btn-preset" onclick="setCount(100)">100</button>
+              <button type="button" class="btn-preset" onclick="setCount(200)">200</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Chế độ sinh câu trả lời:</label>
+          <div class="mode-selector">
+            <label class="mode-option active" id="modeSmartLabel">
+              <input type="radio" name="mode" value="smart" checked onchange="updateModeUI()">
+              <div>
+                <strong>Thông minh & Tự nhiên (Khuyên dùng)</strong>
+                <p>Tự động phân tích ngữ cảnh câu hỏi, phân bổ xác suất như người thật, chọn số lượng đáp án hợp lý, không bao giờ trùng lặp.</p>
+              </div>
+            </label>
+            <label class="mode-option" id="modeRandomLabel">
+              <input type="radio" name="mode" value="random" onchange="updateModeUI()">
+              <div>
+                <strong>Ngẫu nhiên 100% (Uniform Random)</strong>
+                <p>Bốc thăm ngẫu nhiên hoàn toàn các lựa chọn với xác suất đồng đều.</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Khoảng nghỉ giữa các lần gửi (Delay Jitter):</label>
+          <div class="range-inputs">
+            <div>
+              <span class="sub-label">Tối thiểu (ms):</span>
+              <input type="number" id="delayMin" value="800" min="300" step="100" class="input-small">
+            </div>
+            <div>
+              <span class="sub-label">Tối đa (ms):</span>
+              <input type="number" id="delayMax" value="1500" min="500" step="100" class="input-small">
+            </div>
+          </div>
+          <small class="hint">Tạo độ trễ ngẫu nhiên mô phỏng người dùng thật, giúp an toàn và không bị chặn IP.</small>
+        </div>
+
+        <div class="action-buttons">
+          <button id="btnStart" class="btn btn-primary" onclick="startSubmission()">
+            <span>▶</span> Bắt đầu gửi
+          </button>
+          <button id="btnPause" class="btn btn-secondary" onclick="togglePause()" disabled>
+            <span>⏸</span> Tạm dừng
+          </button>
+          <button id="btnStop" class="btn btn-danger" onclick="stopSubmission()" disabled>
+            <span>⏹</span> Dừng hẳn
+          </button>
+        </div>
+      </section>
+
+      <!-- Cột phải: Tiến độ và Thống kê -->
+      <section class="card progress-card">
+        <h2 class="card-title">📊 Tiến độ & Thống kê</h2>
+
+        <div class="progress-section">
+          <div class="progress-info">
+            <span class="progress-percent" id="progressPercent">0%</span>
+            <span class="progress-count" id="progressCount">0 / 0 phiếu</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-value text-blue" id="statSent">0</div>
+            <div class="stat-label">Tổng đã gửi</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value text-green" id="statSuccess">0</div>
+            <div class="stat-label">Thành công</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value text-red" id="statFailed">0</div>
+            <div class="stat-label">Thất bại</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value text-purple" id="statSpeed">0</div>
+            <div class="stat-label">Phiếu / phút</div>
+          </div>
+        </div>
+
+        <div class="status-indicator-bar" id="statusIndicator">
+          Trạng thái: <strong>Sẵn sàng</strong>
+        </div>
+      </section>
+    </div>
+
+    <!-- Danh sách nhật ký gửi phiếu thời gian thực -->
+    <section class="card log-card">
+      <div class="card-header-flex">
+        <h2 class="card-title">📜 Nhật ký phiếu gửi trực tiếp (Live Feed)</h2>
+        <span class="badge" id="logCountBadge">0 phiếu</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="log-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Thời gian</th>
+              <th>Trạng thái</th>
+              <th>Xem trước câu trả lời</th>
+              <th>Thời gian gửi</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody id="logTableBody">
+            <tr id="emptyRow">
+              <td colspan="6" class="text-center text-muted">Chưa có dữ liệu gửi. Hãy dán link form, cấu hình số lượng và bấm "Bắt đầu gửi"!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal xem chi tiết bộ câu trả lời -->
+  <div class="modal-backdrop" id="detailModal" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalTitle">Chi tiết phiếu khảo sát #</h3>
+        <button class="btn-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Chi tiết sẽ được chèn qua JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
